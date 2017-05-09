@@ -13,4 +13,6 @@ end
 
 Notifier::HttpPost.defaults do |post|
   post.on_success = true
+  post.on_warning = false
+  post.on_failure = false
 end
