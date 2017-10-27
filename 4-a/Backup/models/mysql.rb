@@ -9,7 +9,7 @@ Model.new(:mysql, 'mysql') do
     db.prepare_backup = true # see https://github.com/meskyanichi/backup/pull/606 for more information
   end
 
-  store_with SFTP
+  store_with Object.const_get(ENV.fetch('STORE_WITH') { 'SFTP' })
 
   compress_with Gzip
 

@@ -7,7 +7,7 @@ Model.new(:redis, 'redis') do
     db.additional_options = []
   end
 
-  store_with SFTP
+  store_with Object.const_get(ENV.fetch('STORE_WITH') { 'SFTP' })
 
   compress_with Gzip
 

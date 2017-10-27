@@ -4,7 +4,7 @@ Model.new(:app_log, 'app_log') do
     archive.add "./"
   end
 
-  store_with SFTP
+  store_with Object.const_get(ENV.fetch('STORE_WITH') { 'SFTP' })
 
   compress_with Gzip
 
